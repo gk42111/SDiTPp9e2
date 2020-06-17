@@ -1,5 +1,6 @@
 #include "Person.h"
 #include <stack>
+#include <vector>
 using namespace std;
 
 stack <Person> persons, apersons;
@@ -11,11 +12,18 @@ int main() {
 	persons.push(person1);
 	persons.push(person2);
 	persons.push(person3);
-	persons.emplace(person2,person3);
+	persons.emplace("Szymon", "Wasacz", 55);
 	int i = persons.size();
-	persons.pop();
+	apersons.push(person3);
 	persons.swap(apersons);
-	persons.top();
+	vector<Person> array;
+	while (!apersons.empty()) {
+		cout << apersons.top();
+		array.push_back(apersons.top());
+		apersons.pop();
+	}
+	
 	persons.empty();
-
+	system("pause");
+	return 0;
 }
